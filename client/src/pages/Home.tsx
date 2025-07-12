@@ -45,7 +45,12 @@ export default function Home() {
 
   // Calculate product count for each category
   const getCategoryProductCount = (categoryId: number) => {
-    return products.filter(product => product.categoryId === categoryId && product.isActive).length;
+    const count = products.filter(product => 
+      product.categoryId === categoryId && 
+      product.isActive === true
+    ).length;
+    console.log(`Category ${categoryId} has ${count} products`);
+    return count;
   };
 
   const handleCategoryClick = (category: Category) => {
